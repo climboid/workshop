@@ -15,15 +15,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
+
 		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/styles.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -49,14 +47,53 @@
 				</section>
 
 				<section>
-					<h2>Intros</h2>
+					<h2>Structure of the course</h2>
 					<p>
-						Oscar Villarreal
+						<ul>
+							<li>Intros</li>
+							<li>Evolution of Front End</li>
+							<li>Dive into Yeoman</li>
+							<li>Dive into Angular</li>
+							<li>Dive into D3.js</li>
+							<li>Projects throughout all points</li>
+						</ul>
 					</p>
 
 					<aside class="notes">
 						Talk about who we are, what we've been doing, climbing in the Himalaya.
 					</aside>
+				</section>
+
+				<section>
+					<h2>Intros</h2>
+					
+					<aside class="notes">
+						Talk about who we are, what we've been doing, climbing in the Himalaya.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Oscar Villarreal</h2>
+					<img src="img/me.jpg" class="left"/>
+					<ul>
+						<li>AngularJS</li>
+						<li>webGL</li>
+						<li>d3JS</li>
+						<li>Rock climb</li>
+						<li>oscarvillareal.com</li>
+						<li>@climboid</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Suman Paul</h2>
+					<img src="img/me.jpg" class="left"/>
+					<ul>
+						<li>AngularJS</li>
+						<li>webGL</li>
+						<li>d3JS</li>
+						<li>Rock climb</li>
+					</ul>
 				</section>
 
 				<section>
@@ -67,11 +104,18 @@
 						<li>Little support for JavaScript</li>
 						<li>Cross browser Hell</li>
 						<li>Animated gifs was as good as it got</li>
-						<li>...</li>
+						<li>PrototypeJS - Thomas Fuchs</li>
+						<li>jQuery - John Resig</li>
+						<li>Flash was awesome</li>
+						<li>No mobile or very little</li>
 					</ul>
 
 					<aside class="notes">
-						
+						I've created jQuery hell<br>
+						I used to do flash<br>
+						Loved Firefox and hated IE<br>
+						look from site point "The Art &amp; Science of JavaScript
+						Thomas Fuchs &amp; Amy Hoy - JavaScript Master Class
 					</aside>
 				</section>
 
@@ -84,22 +128,20 @@
 						<li>JavaScript is in the top 5 most popular <a href="http://langpop.com/" target="_blank">languages in the world</a></li>
 						<li>CANVAS and SVG dominate</li>
 						<li>webGL</li>
-						<li>...</li>
+						<li>Flash is not dead but its not as popular</li>
+						<li>Automatic updates are all over the place</li>
 					</ul>
 
 					<aside class="notes">
-						
+						Browser wars really did the trick<br>
+						V8 from chrome pushed the limits<br>
+						Everyone has a browser on their computer<br>
 					</aside>
 				</section>
 
 				<section>
 					<h2>So what does that mean?</h2>
 					<p>It means that we have the power to do things better and more organized with richer interactions</p>
-					<ul>
-						<li>No more jQuery Hell</li>
-						<li>No more static images when not intended</li>
-						<li>No more JavaScript only does very little to your app</li>
-					</ul>
 					<aside class="notes">
 						
 					</aside>
@@ -116,7 +158,6 @@
 					<h2>Yeoman</h2>
 					<ul>
 						<li>"A collection of tools and best practices working in harmony to make developing for the web even better"</li>
-						<li>Created by Google employees (Addy Osmani)</li>
 						<li>Allows you to quickly assemble files and folders along with boilerplate code.</li>
 						<li>Uses grunt for all of its tasks</li>
 						<li>Uses Bower for all of the project dependencies</li>
@@ -128,7 +169,20 @@
 				</section>
 
 				<section>
+					<h2>Who contributes to Yeoman?</h2>
+					<p>Addy Osmani a.k.a Yeoman daddy + <a href="https://github.com/yeoman/yeoman/graphs/contributors" target="_blank">some of the best in the world</a>
+					</p>
+					<aside class="notes">
+						Some of the best devs around... they're all buddies actually and most of them work at Google. 
+						Pitfalls of that.
+						Benefits of that
+					</aside>
+				</section>
+
+				<section>
 					<h2>What is Grunt?</h2>
+					<p>Automation</p>
+					<p>Takes care of minification, compilation (sass, coffeescript), unit testing etc</p>
 					<aside class="notes">
 						
 					</aside>
@@ -136,26 +190,30 @@
 
 				<section>
 					<h2>What is Bower?</h2>
+					<p>A package manager for the web, mainly front end packaging management</p>
 					<aside class="notes">
-						
+						How many js libraries are there out there? Name a few out loud<br>
+						Back in the day we had prototypeJS<br>
 					</aside>
 				</section>
 
 				<section>
 					<h2>What is a generator?</h2>
+					<p>A way to instantiate convention over configuration</p>
+					<p>Boilerplate code<br>
+						<ul>
+							<li>CSS resets</li>
+							<li>HTML5 doctypes, checks for old browsers (IE)</li>
+							<li>Common CSS classes left:{float:left} right:{float:right}</li>
+							<li>...</li>
+						</ul>
+					</p>
 					<aside class="notes">
-						
+						Anybody does rails? This is like scaffolding</br>
 					</aside>
 				</section>
 
-				<section>
-					<h2>Who contributes to Yeoman?</h2>
-					<aside class="notes">
-						Some of the best devs around... they're all buddies actually and most of them work at Google. 
-						Pitfalls of that.
-						Benefits of that
-					</aside>
-				</section>
+				
 
 				<section>
 					<h2>How does Yeoman work</h2>
@@ -185,7 +243,9 @@
 					<h2>Lets create repos with Yeoman</h2>
 					<p>Live example</p>
 					<aside class="notes">
-						
+						Create a project with Yeoman<br>
+						Install something via bower<br>
+						Run a grunt command to create the dist folder<br>
 					</aside>
 				</section>
 
@@ -199,15 +259,17 @@
 
 				<section>
 					<h2>What is an MVC framework</h2>
+					<p>A pattern for your code that separates interaction and view</p>
 					<ul>
 						<li>Where does it come from? (smalltalk)</li>
-						<li>How has it evolved</li>
+						<li>How has it evolved in the front end</li>
 						<ul>
-							<li>Backbone</li>
+							<li>JavaScript MVC</li>
+							<li>Backbone - Jeremy Ashkenas</li>
 							<li>Spine</li>
-							<li>Knockout</li>
-							<li>Ember</li>
-							<li>AngularJS</li>
+							<li>Knockout MVVM</li>
+							<li>Ember - Yehuda Katz &amp; Tom Dale</li>
+							<li>AngularJS - Misko Hevery</li>
 						</ul>
 						<li></li>
 					</ul>
@@ -216,6 +278,7 @@
 						Why should I care? 
 						What differences are there between these frameworks?
 						How can I choose the right one for me?
+						Backbone - jeremy askhenas - document cloud
 					</aside>
 				</section>
 
