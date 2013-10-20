@@ -26,6 +26,17 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<style type="text/css">
+		ul.introList{
+			list-style-type: none;
+			position: absolute;
+			margin-top:0.2em;
+		}
+		.introList li{
+			list-style: none;
+		}
+		</style>
 	</head>
 
 	<body>
@@ -74,14 +85,15 @@
 
 				<section>
 					<h2>Oscar Villarreal</h2>
-					<img src="img/me.jpg" class="left"/>
-					<ul>
+					<img src="img/me.jpg" class="left" style="width:30%"/>
+					<ul class="introList">
 						<li>AngularJS</li>
 						<li>webGL</li>
 						<li>d3JS</li>
 						<li>Rock climb</li>
 						<li>oscarvillareal.com</li>
 						<li>@climboid</li>
+						<li></li>
 					</ul>
 				</section>
 
@@ -205,7 +217,7 @@
 							<li>CSS resets</li>
 							<li>HTML5 doctypes, checks for old browsers (IE)</li>
 							<li>Common CSS classes left:{float:left} right:{float:right}</li>
-							<li>...</li>
+							<li>Standardized file/folder structure as well as naming conventions and name spaces</li>
 						</ul>
 					</p>
 					<aside class="notes">
@@ -304,7 +316,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>Router</h3>
-					<p></p>
+					<p>A router allows you to glue a controller to a view, creates a scope underneath that controller and maintains state within the app.</p>
 					<aside class="notes">
 						
 					</aside>
@@ -313,7 +325,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>Controller</h3>
-					<p></p>
+					<p>Instantiation of a new controller object along with its child scope</p>
 					<aside class="notes">
 						
 					</aside>
@@ -322,7 +334,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>View</h3>
-					<p></p>
+					<p>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
 					<aside class="notes">
 						
 					</aside>
@@ -331,7 +343,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>Services</h3>
-					<p></p>
+					<p>Something that spans multiple controllers and doesn't have a view tied to it.</p>
 					<aside class="notes">
 						
 					</aside>
@@ -340,7 +352,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>Constants</h3>
-					<p></p>
+					<p>Maintained across the entire application. Can be injected as a service. Use this for constants within your application.</p>
 					<aside class="notes">
 						
 					</aside>
@@ -349,7 +361,7 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>Directives</h3>
-					<p></p>
+					<p>UI components, charts, visualization... anything that has specific html conversion and needs to be part of the given scope.</p>
 					<aside class="notes">
 						
 					</aside>
@@ -373,6 +385,15 @@
 
 				<section>
 					<h2>What is SVG?</h2>
+					<p>
+						<ul>
+							<li>Scalable Vector Graphics, vector image format for 2 dimensional graphics</li>
+							<li>It is part of the DOM, can be styled using css</li>
+							<li>Because its part of the DOM one can attach events to it via JavaScript</li>
+							<li>Vectors can be scaled and because of that will look beautifully on retina displays</li>
+							<li>Best practice to use images as SVG format and even fonts</li>
+						</ul>
+					</p>
 					<aside class="notes">
 						
 					</aside>
@@ -381,6 +402,7 @@
 
 				<section>
 					<h2>What is the canvas?</h2>
+					<p></p>
 					<aside class="notes">
 						
 					</aside>
@@ -388,6 +410,14 @@
 
 				<section>
 					<h2>Third party libraries for Canvas</h2>
+					<p>
+						<ul>
+							<li>Kinetic JS</li>
+							<li>Fabric JS</li>
+							<li>three JS</li>
+							<li></li>
+						</ul>
+					</p>
 					<aside class="notes">
 						
 					</aside>
@@ -396,6 +426,12 @@
 
 				<section>
 					<h2>Third party libraries for SVG</h2>
+					<p>
+						<li>D3.js</li>
+						<li>Raphael</li>
+						<li>Bonsai JS</li>
+						<li></li>
+					</p>
 					<aside class="notes">
 						
 					</aside>
@@ -405,12 +441,20 @@
 					<h2>Why choose D3.js</h2>
 					<aside class="notes">
 						Talk about the power of data binding and the elegance of the library.
-						Visualizations is a side product of the library.
+						Visualizations is a side product of the library. 
+						Large community support.
 					</aside>
 				</section>
 
 				<section>
 					<h2>Who's behind D3.js</h2>
+					<p>
+						<ul>
+							<li>Mike Bostock</li>
+							<li>Jason Davies</li>
+							<li> many others </li>
+						</ul>
+					</p>
 					<aside class="notes">
 						
 					</aside>
