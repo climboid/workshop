@@ -216,7 +216,7 @@
 						<ul>
 							<li>CSS resets</li>
 							<li>HTML5 doctypes, checks for old browsers (IE)</li>
-							<li>Common CSS classes left:{float:left} right:{float:right}</li>
+							<li>Twitter bootstrap if you want it</li>
 							<li>Standardized file/folder structure as well as naming conventions and name spaces</li>
 						</ul>
 					</p>
@@ -242,9 +242,9 @@
 						<li>Handle scenarios for those who don't have a Mac</li>
 					</ul>
 						<pre>
-							<code>npm install -g yo</code>
-							<code>npm install -g generator-webapp</code>
-							<code>npm install -g generator-angular</code>
+							npm install -g yo
+							npm install -g generator-webapp
+							npm install -g generator-angular
 						</pre>
 					<aside class="notes">
 						
@@ -276,11 +276,12 @@
 						<li>Where does it come from? (smalltalk)</li>
 						<li>How has it evolved in the front end</li>
 						<ul>
+							<li>DOJO Toolkit</li>
 							<li>JavaScript MVC</li>
-							<li>Backbone - Jeremy Ashkenas</li>
-							<li>Spine</li>
-							<li>Knockout MVVM</li>
-							<li>Ember - Yehuda Katz &amp; Tom Dale</li>
+							<li>Backbone.js - Jeremy Ashkenas</li>
+							<li>Spine.js</li>
+							<li>Knockout.js MVVM</li>
+							<li>Ember.js - Yehuda Katz &amp; Tom Dale</li>
 							<li>AngularJS - Misko Hevery</li>
 						</ul>
 						<li></li>
@@ -306,8 +307,32 @@
 					<h2>Core concepts of angular</h2>
 					<ul>
 						<li>the ng...</li>
-						<li>ng-app</li>
+						<li>ng-app="App"</li>
 					</ul>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Core concpets of angular</h2>
+					<h3>Your main app module</h3>
+					<br>
+					<pre>
+'use strict';
+
+angular.module('App', [])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  });
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -317,6 +342,16 @@
 					<h2>Core concepts of angular</h2>
 					<h3>Router</h3>
 					<p>A router allows you to glue a controller to a view, creates a scope underneath that controller and maintains state within the app.</p>
+					<pre>
+$routeProvider
+ .when('/', {
+  templateUrl: 'views/main.html',
+  controller: 'MainCtrl'
+ })
+ .otherwise({
+  redirectTo: '/'
+});
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -326,6 +361,18 @@
 					<h2>Core concepts of angular</h2>
 					<h3>Controller</h3>
 					<p>Instantiation of a new controller object along with its child scope</p>
+					<pre>
+'use strict';
+
+angular.module('App')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+  });
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -334,7 +381,20 @@
 				<section>
 					<h2>Core concepts of angular</h2>
 					<h3>View</h3>
-					<p>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
+					<p>ng-view<br>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
+					<pre>
+						<code>
+<div class="hero-unit">
+  <h1>'Allo, 'Allo!</h1>
+  <p>You now have</p>
+  <ul>
+      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+  </ul>
+  <p>installed.</p>
+  <h3>Enjoy coding! - Yeoman</h3>
+</div>
+</code>
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -342,8 +402,61 @@
 
 				<section>
 					<h2>Core concepts of angular</h2>
+					<h3>Side by side now</h3>
+					<table width="100%"cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+								<pre>
+						<code class="html">
+<div class="hero-unit">
+  <h1>'Allo, 'Allo!</h1>
+  <p>You now have</p>
+  <ul>
+      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+  </ul>
+  <p>installed.</p>
+  <h3>Enjoy coding! - Yeoman</h3>
+</div>
+</code>
+					</pre>
+							</td>
+							<td valign="top">
+								<pre>
+									<code class="javascript">
+'use strict';
+
+angular.module('App')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+  });
+  	</code>
+					</pre>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Core concepts of angular</h2>
 					<h3>Services</h3>
 					<p>Something that spans multiple controllers and doesn't have a view tied to it.</p>
+					<pre>
+						<code>
+'use strict';
+
+angular.module('App')
+  .service('Calculations', function Calculations() {
+    return{
+      firstCalc: function(){ return 'hello' },
+      secondCalc: function(){ return 'world' }
+    }
+  });
+						</code>
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -353,6 +466,14 @@
 					<h2>Core concepts of angular</h2>
 					<h3>Constants</h3>
 					<p>Maintained across the entire application. Can be injected as a service. Use this for constants within your application.</p>
+					<pre>
+						<code>
+'use strict';
+
+angular.module('App')
+  .constant('staticDataset', [{a:'a',b:'b'}]);
+						</code>
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -362,6 +483,22 @@
 					<h2>Core concepts of angular</h2>
 					<h3>Directives</h3>
 					<p>UI components, charts, visualization... anything that has specific html conversion and needs to be part of the given scope.</p>
+					<pre>
+						<code>
+'use strict';
+
+angular.module('App')
+  .directive('chart', function () {
+    return {
+      template: '<div></div>',
+      restrict: 'E',
+      link: function postLink(scope, element, attrs) {
+        element.text('this is the chart directive');
+      }
+    };
+  });
+						</code>
+					</pre>
 					<aside class="notes">
 						
 					</aside>
@@ -402,7 +539,7 @@
 
 				<section>
 					<h2>What is the canvas?</h2>
-					<p></p>
+					<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
 					<aside class="notes">
 						
 					</aside>
