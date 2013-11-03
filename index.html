@@ -14,6 +14,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+
 		<link rel="stylesheet" href="css/reveal.min.css">
 
 		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
@@ -28,6 +30,7 @@
 		<![endif]-->
 
 		<style type="text/css">
+
 		ul.introList{
 			list-style-type: none;
 			position: absolute;
@@ -36,6 +39,22 @@
 		.introList li{
 			list-style: none;
 		}
+
+		.reveal ul{
+			list-style:none;
+		}
+
+		.node {
+		  stroke: #fff;
+		  stroke-width: 1.5px;
+		}
+
+		.link {
+		  stroke: #999;
+		  stroke-opacity: .6;
+		}
+
+
 		</style>
 	</head>
 
@@ -109,20 +128,19 @@
 				</section>
 
 				<section>
-					<h2>Evolution of UI</h2>
-					<h3>The past</h3>
-					<ul>
-						<li>Static pages rendered in the Server</li>
-						<li>Little support for JavaScript</li>
-						<li>Cross browser Hell</li>
-						<li>Animated gifs was as good as it got</li>
-						<li>PrototypeJS - Thomas Fuchs</li>
-						<li>jQuery - John Resig</li>
-						<li>Flash was awesome</li>
-						<li>No mobile or very little</li>
-					</ul>
-
+					<img src="img/winOld.png"/>
+					<p>The past</p>
 					<aside class="notes">
+						<ul>
+							<li>Static pages rendered in the Server</li>
+							<li>Little support for JavaScript</li>
+							<li>Cross browser Hell</li>
+							<li>Animated gifs was as good as it got</li>
+							<li>PrototypeJS - Thomas Fuchs</li>
+							<li>jQuery - John Resig</li>
+							<li>Flash was awesome</li>
+							<li>No mobile or very little</li>
+						</ul>
 						I've created jQuery hell<br>
 						I used to do flash<br>
 						Loved Firefox and hated IE<br>
@@ -132,19 +150,18 @@
 				</section>
 
 				<section>
-					<h2>Evolution of UI</h2>
-					<h3>The present</h3>
-					<ul>
-						<li>Browser wars are over</li>
-						<li>HTML5 is her to stay</li>
-						<li>JavaScript is in the top 5 most popular <a href="http://langpop.com/" target="_blank">languages in the world</a></li>
-						<li>CANVAS and SVG dominate</li>
-						<li>webGL</li>
-						<li>Flash is not dead but its not as popular</li>
-						<li>Automatic updates are all over the place</li>
-					</ul>
-
+					<img src="img/dontStop.jpg"/>
+					<p>The present</p>
 					<aside class="notes">
+						<ul>
+							<li>Browser wars are over</li>
+							<li>HTML5 is her to stay</li>
+							<li>JavaScript is in the top 5 most popular <a href="http://langpop.com/" target="_blank">languages in the world</a></li>
+							<li>CANVAS and SVG dominate</li>
+							<li>webGL</li>
+							<li>Flash is not dead but its not as popular</li>
+							<li>Automatic updates are all over the place</li>
+						</ul>
 						Browser wars really did the trick<br>
 						V8 from chrome pushed the limits<br>
 						Everyone has a browser on their computer<br>
@@ -152,22 +169,36 @@
 				</section>
 
 				<section>
-					<h2>So what does that mean?</h2>
-					<p>It means that we have the power to do things better and more organized with richer interactions</p>
+					<img src="img/infinite_power.jpg"/>
+					<p>It basically means that we have the power to do things better and more organized with richer interactions</p>
 					<aside class="notes">
 						
 					</aside>
 				</section>
 
 				<section>
-					<h2>Enter the world of single page web applications</h2>
+					<img src="img/bored.jpg"/>
+					<p>Start by getting a quick scaffold of common libraries and utilities</p>
 					<aside class="notes">
-						
+						How much time do you spend this days creating a boilerplate template?
+						Do you have all of your set up processes optimized so that you spend very little effort finding and installing what you need?
 					</aside>
 				</section>
 
 				<section>
-					<h2>Yeoman</h2>
+					<h2>Right common libraries and utilities... there are hundreds?</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/yeoman.png"/>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/yeoman-logo.png"/>
 					<ul>
 						<li>"A collection of tools and best practices working in harmony to make developing for the web even better"</li>
 						<li>Allows you to quickly assemble files and folders along with boilerplate code.</li>
@@ -192,17 +223,19 @@
 				</section>
 
 				<section>
-					<h2>What is Grunt?</h2>
-					<p>Automation</p>
+					<img src="img/grunt.png"/>
+					<h2>Grunt</h2>
 					<p>Takes care of minification, compilation (sass, coffeescript), unit testing etc</p>
+					<p>Automation</p>
 					<aside class="notes">
 						
 					</aside>
 				</section>
 
 				<section>
-					<h2>What is Bower?</h2>
-					<p>A package manager for the web, mainly front end packaging management</p>
+					<img src="img/bower.png"/>
+					<h2>Bower</h2>
+					<p>A package manager for the web, mainly front end packaging management.</p>
 					<aside class="notes">
 						How many js libraries are there out there? Name a few out loud<br>
 						Back in the day we had prototypeJS<br>
@@ -210,18 +243,18 @@
 				</section>
 
 				<section>
-					<h2>What is a generator?</h2>
+					<img src="img/yo-generator.jpg"/>
+					<h2>Generator</h2>
 					<p>A way to instantiate convention over configuration</p>
-					<p>Boilerplate code<br>
+					<p>Boilerplate code</p>
+					<aside class="notes">
+						Anybody does rails? This is like scaffolding</br>
 						<ul>
 							<li>CSS resets</li>
 							<li>HTML5 doctypes, checks for old browsers (IE)</li>
 							<li>Twitter bootstrap if you want it</li>
 							<li>Standardized file/folder structure as well as naming conventions and name spaces</li>
 						</ul>
-					</p>
-					<aside class="notes">
-						Anybody does rails? This is like scaffolding</br>
 					</aside>
 				</section>
 
@@ -242,9 +275,9 @@
 						<li>Handle scenarios for those who don't have a Mac</li>
 					</ul>
 						<pre>
-							npm install -g yo
-							npm install -g generator-webapp
-							npm install -g generator-angular
+npm install -g yo
+npm install -g generator-webapp
+npm install -g generator-angular
 						</pre>
 					<aside class="notes">
 						
@@ -284,7 +317,6 @@
 							<li>Ember.js - Yehuda Katz &amp; Tom Dale</li>
 							<li>AngularJS - Misko Hevery</li>
 						</ul>
-						<li></li>
 					</ul>
 					<aside class="notes">
 						What is the point of using an MVC framework? 
@@ -296,11 +328,35 @@
 				</section>
 
 				<section>
+					<img src="img/AngularJS-large.png"/>
 					<h2>Why choose Angular?</h2>
-					<p></p>
 					<aside class="notes">
-						
+						There is no silver bullet.
+						Both Angular and Ember are very different but definitely the most popular. 
+						It will come down to personal preference they are both extremely good libraries
 					</aside>
+				</section>
+
+				<section>
+					<h2>Who contributes to Angular?</h2>
+					<ul>
+						<li>Google</li>
+						<li>
+							<a href="http://misko.hevery.com/" target="_blank"/>Misko Hevery</a>
+						</li>
+						<li>
+							<a href="https://github.com/IgorMinar" target="_blank">Igor Minar</a>
+						</li>
+						<li>
+							<a href="https://github.com/vojtajina" target="_blank">Vojta Jina</a>
+						</li>
+						<li>
+							<a href="https://github.com/matsko" target="_blank">Matias Niemela</a>
+						</li>
+						<li>
+							<a href="https://github.com/btford" target="_blank">Brian Ford</a>
+						</li>
+					</ul>
 				</section>
 
 				<section>
@@ -308,9 +364,28 @@
 					<ul>
 						<li>the ng...</li>
 						<li>ng-app="App"</li>
+						<li>ng-view</li>
 					</ul>
+					<pre>
+						<code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"/&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="App"&gt;
+    &lt;div class="container" ng-view&gt;&lt;/div&gt;
+    &lt;script src="components/angular/angular.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/controllers/main.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+					</pre>
 					<aside class="notes">
-						
+						This is a basic index.html file. You don't need to break out the controller and app.js files but its
+						recommended for best practices. That way as your app gets bigger you can follow a nice file/folder structure
+						where each route potentially can have its own controller and view (unless sharing makes more sense)
 					</aside>
 				</section>
 
@@ -319,6 +394,7 @@
 					<h3>Your main app module</h3>
 					<br>
 					<pre>
+						<code>
 'use strict';
 
 angular.module('App', [])
@@ -332,9 +408,11 @@ angular.module('App', [])
         redirectTo: '/'
       });
   });
+  	</code>
 					</pre>
 					<aside class="notes">
-						
+						This snippet would belong to the app.js file. Here we define all of our routes and potentially any ajax interceptors.
+						Maybe some rootscope properties as well
 					</aside>
 				</section>
 
@@ -343,6 +421,7 @@ angular.module('App', [])
 					<h3>Router</h3>
 					<p>A router allows you to glue a controller to a view, creates a scope underneath that controller and maintains state within the app.</p>
 					<pre>
+						<code>
 $routeProvider
  .when('/', {
   templateUrl: 'views/main.html',
@@ -351,6 +430,7 @@ $routeProvider
  .otherwise({
   redirectTo: '/'
 });
+						</code>
 					</pre>
 					<aside class="notes">
 						
@@ -362,6 +442,7 @@ $routeProvider
 					<h3>Controller</h3>
 					<p>Instantiation of a new controller object along with its child scope</p>
 					<pre>
+						<code>
 'use strict';
 
 angular.module('App')
@@ -372,7 +453,56 @@ angular.module('App')
       'Karma'
     ];
   });
+  					</code>
 					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Core concepts of angular</h2>
+					<h3>$scope</h3>
+					<p>Keeps your logic contained to that controller unless you are using $rootScope</p>
+					<p>$scope will allow you to interpolate its properties in a given view</p>
+					<p>$scope.hello = "world"</p>
+					<pre>
+						<code type="html">
+<div ng-bind="hello">...</div>
+<div>{{hello}}... </div>
+</code>
+					</pre>
+					<p>What gets rendered in the ... ?</p>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Core concepts of angular</h2>
+					<h3>$scope</h3>
+					<pre>
+						<code type="javascript">
+angular.module('App')
+  .controller('MainCtrl', function ($scope) {
+    $scope.hello = [
+     {title:'me',color:'blue',value:2},
+     {title:'you',color:'red',value:0}
+    ];
+  });
+</code>
+<code type="html">
+<!-- main.html-->
+&lt;ul&gt;
+ &lt;li ng-repeat="item in hello"&gt;
+  &lt;div ng-bind="item.title"&gt;&lt;/div&gt;
+  &lt;div&gt;{{item.color}}&lt;/div&gt;
+  &lt;input type="number" ng-model="item.value"/&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+</code>
+					</pre>
+					
 					<aside class="notes">
 						
 					</aside>
@@ -383,7 +513,7 @@ angular.module('App')
 					<h3>View</h3>
 					<p>ng-view<br>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
 					<pre>
-						<code>
+						<code type="html">
 <div class="hero-unit">
   <h1>'Allo, 'Allo!</h1>
   <p>You now have</p>
@@ -398,46 +528,6 @@ angular.module('App')
 					<aside class="notes">
 						
 					</aside>
-				</section>
-
-				<section>
-					<h2>Core concepts of angular</h2>
-					<h3>Side by side now</h3>
-					<table width="100%"cellspacing="0" cellpadding="0">
-						<tr>
-							<td>
-								<pre>
-						<code class="html">
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
-</div>
-</code>
-					</pre>
-							</td>
-							<td valign="top">
-								<pre>
-									<code class="javascript">
-'use strict';
-
-angular.module('App')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
-  	</code>
-					</pre>
-							</td>
-						</tr>
-					</table>
 				</section>
 
 				<section>
@@ -539,9 +629,14 @@ angular.module('App')
 
 				<section>
 					<h2>What is the canvas?</h2>
-					<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
+					<pre>
+						<code type="html">
+<canvas></canvas>
+						</code>
+					</pre>
 					<aside class="notes">
-						
+						<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
+						<p></p>
 					</aside>
 				</section>
 
@@ -560,7 +655,6 @@ angular.module('App')
 					</aside>
 				</section>
 
-
 				<section>
 					<h2>Third party libraries for SVG</h2>
 					<p>
@@ -576,6 +670,70 @@ angular.module('App')
 
 				<section>
 					<h2>Why choose D3.js</h2>
+					<div id="firstD3"></div>
+					
+					<script>
+
+					var width = 960,
+					    height = 500;
+
+					var color = d3.scale.category20();
+
+					var force = d3.layout.force()
+					    .charge(-120)
+					    .linkDistance(30)
+					    .size([width, height]);
+
+					var svg = d3.select("#firstD3").append("svg")
+					    .attr("width", width)
+					    .attr("height", height);
+
+					d3.json("/js/miserables.json", function(error, graph) {
+					  force
+					      .nodes(graph.nodes)
+					      .links(graph.links)
+					      .start();
+
+					  var link = svg.selectAll(".link")
+					      .data(graph.links)
+					    .enter().append("line")
+					      .attr("class", "link")
+					      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+					  var node = svg.selectAll(".node")
+					      .data(graph.nodes)
+					    .enter().append("circle")
+					      .attr("class", "node")
+					      .attr("r", 5)
+					      .style("fill", function(d) { return color(d.group); })
+					      .call(force.drag);
+
+					  node.append("title")
+					      .text(function(d) { return d.name; });
+
+					  force.on("tick", function() {
+					    link.attr("x1", function(d) { return d.source.x; })
+					        .attr("y1", function(d) { return d.source.y; })
+					        .attr("x2", function(d) { return d.target.x; })
+					        .attr("y2", function(d) { return d.target.y; });
+
+					    node.attr("cx", function(d) { return d.x; })
+					        .attr("cy", function(d) { return d.y; });
+					  });
+					});
+
+					</script>
+				</section>
+
+				<section>
+					<h2>Why choose D3.js</h2>
+					<ul>
+						<li>Full power and control over every single vector drawn</li>
+						<li>Extremely easy to data bind</li>
+						<li>Extremely easy to bind events</li>
+						<li>Its vectors so works beautifully on all displays</li>
+						<li>Huge support from community</li>
+					</ul>
 					<aside class="notes">
 						Talk about the power of data binding and the elegance of the library.
 						Visualizations is a side product of the library. 
@@ -587,13 +745,16 @@ angular.module('App')
 					<h2>Who's behind D3.js</h2>
 					<p>
 						<ul>
-							<li>Mike Bostock</li>
-							<li>Jason Davies</li>
+							<li>
+								<a href="http://bost.ocks.org/mike/" target="_blank">Mike Bostock</a></li>
+							<li>
+								<a href="http://www.jasondavies.com/">Jason Davies</a></li>
 							<li> many others </li>
 						</ul>
 					</p>
+					<blockquote cite="http://www.ft.com/cms/s/2/dda1cb5c-f4c0-11e2-a62e-00144feabdc0.html"> "I suggest keeping an eye on the work of Bret Victor and Mike Bostock. Both are cutting edge. Bret Victor visualises programming, sees and thinks beautifully, just starting to blossom developed the open-source D3, Data-Driven Documents ."</blockquote>
 					<aside class="notes">
-						
+						<p>Edward Tufte is the guru of graphics, the high priest of presentation. For more than 30 years he has been showing us how to visualise data with simplicity, clarity and elegance, while campaigning against “chartjunk” and other design practices that lead to obfuscation.</p>
 					</aside>
 				</section>
 
@@ -615,11 +776,7 @@ angular.module('App')
 
 				<section>
 					<h2>D3.js code example</h2>
-					<pre>
-						<code>
-							//put all the code here
-						</code>
-					</pre>
+					<a href="http://bl.ocks.org/mbostock/3885304" target="_blank">link to code</a>
 					<aside class="notes">
 						
 					</aside>
