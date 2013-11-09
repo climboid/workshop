@@ -1,0 +1,22 @@
+ul.introList{
+	list-style-type: none;
+	position: absolute;
+	margin-top:0.2em;
+}
+.introList li{
+	list-style: none;
+}
+
+.reveal ul{
+	list-style:none;
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
