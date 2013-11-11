@@ -84,7 +84,6 @@
 						<li>Rock climb</li>
 						<li>oscarvillareal.com</li>
 						<li>@climboid</li>
-						<li></li>
 					</ul>
 				</section>
 
@@ -172,18 +171,7 @@
 					</aside>
 				</section>
 
-				<section>
-					<h2>Who contributes to Yeoman?</h2>
-					<p>Addy Osmani a.k.a Yeoman daddy + <a href="https://github.com/yeoman/yeoman/graphs/contributors" target="_blank">some of the best in the world</a>
-					</p>
-					<aside class="notes">
-						Some of the best devs around... they're all buddies actually and most of them work at Google. 
-						Pitfalls of that.
-						Benefits of that
-					</aside>
-				</section>
-
-				<section>
+								<section>
 					<img src="img/grunt.png"/>
 					<h2>Grunt</h2>
 					<p>Takes care of minification, compilation (sass, coffeescript), unit testing etc</p>
@@ -218,6 +206,19 @@
 						</ul>
 					</aside>
 				</section>
+
+				<section>
+					<h2>Who contributes to Yeoman?</h2>
+					<p>Addy Osmani a.k.a Yeoman daddy + <a href="https://github.com/yeoman/yeoman/graphs/contributors" target="_blank">some of the best in the world</a>
+					</p>
+					<aside class="notes">
+						Some of the best devs around... they're all buddies actually and most of them work at Google. 
+						Pitfalls of that.
+						Benefits of that
+					</aside>
+				</section>
+
+
 
 				
 
@@ -256,7 +257,7 @@ npm install -g generator-angular
 				</section>
 
 				<section>
-					<h2>Break 5-10 mins?</h2>
+					<h2>Time boxed 5-10 mins?</h2>
 					<aside class="notes">
 						
 					</aside>
@@ -391,6 +392,10 @@ $routeProvider
   templateUrl: 'views/main.html',
   controller: 'MainCtrl'
  })
+ .when('/directory', {
+  templateUrl: 'views/directory.html',
+  controller: 'DirectoryCtrl'
+ })
  .otherwise({
   redirectTo: '/'
 });
@@ -418,6 +423,29 @@ angular.module('App')
     ];
   });
   					</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>Core concepts of angular</h2>
+					<h3>View</h3>
+					<p>ng-view<br>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
+					<pre>
+						<code type="html">
+<div class="hero-unit">
+  <h1>'Allo, 'Allo!</h1>
+  <p>You now have</p>
+  <ul>
+      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+  </ul>
+  <p>installed.</p>
+  <h3>Enjoy coding! - Yeoman</h3>
+</div>
+</code>
 					</pre>
 					<aside class="notes">
 						
@@ -472,27 +500,6 @@ angular.module('App')
 					</aside>
 				</section>
 
-				<section>
-					<h2>Core concepts of angular</h2>
-					<h3>View</h3>
-					<p>ng-view<br>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
-					<pre>
-						<code type="html">
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
-</div>
-</code>
-					</pre>
-					<aside class="notes">
-						
-					</aside>
-				</section>
 
 				<section>
 					<h2>Core concepts of angular</h2>
@@ -503,10 +510,10 @@ angular.module('App')
 'use strict';
 
 angular.module('App')
-  .service('Calculations', function Calculations() {
+  .service('Welcoming', function Calculations() {
     return{
       sayHello: function(){ return 'hello' },
-      sayWorld: function(){ return 'world' }
+      sayGoodbye: function(){ return 'goodbye' }
     }
   });
 						</code>
@@ -525,7 +532,7 @@ angular.module('App')
 'use strict';
 
 angular.module('App')
-  .constant('staticDataset', [{a:'a',b:'b'}]);
+  .constant('Pi', 3.141516);
 						</code>
 					</pre>
 					<aside class="notes">
@@ -535,7 +542,7 @@ angular.module('App')
 
 				<section>
 					<h2>Core concepts of angular</h2>
-					<h3>Directives</h3>
+					<h3>Custom Directives</h3>
 					<p>UI components, charts, visualization... anything that has specific html conversion and needs to be part of the given scope.</p>
 					<pre>
 						<code>
@@ -544,11 +551,8 @@ angular.module('App')
 angular.module('App')
   .directive('chart', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the chart directive');
-      }
+      template: '<div>I am a chart</div>',
+      restrict: 'E'
     };
   });
 						</code>
@@ -556,6 +560,30 @@ angular.module('App')
 					<aside class="notes">
 						
 					</aside>
+				</section>
+
+				<section>
+					<h2>Core concepts of angular</h2>
+					<h3>Custom Dirctives</h3>
+					<pre>
+						<code>
+'use strict';
+
+angular.module('App')
+  .directive('chart', function () {
+  return {
+      restrict: 'E',
+      controller: function($scope, $element){
+
+    	},
+      templateUrl: 'my-dialog.html',
+      link: function (scope, element) {
+        scope.name = 'Jeff';
+      }
+    };
+  });
+						</code>
+					</pre>
 				</section>
 
 				<section>
@@ -569,6 +597,27 @@ angular.module('App')
 
 				<section>
 					<h2>Break 5-10 mins?</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Recap</h2>
+					<ul>
+						<li>History</li>
+						<li>Workflow</li>
+						<ul>
+							<li>Yeoman</li>
+							<li>Generators</li>
+							<li>Scaffolds</li>
+						</ul>
+						<li>MVC</li>
+						<ul>
+							<li>Ember</li>
+							<li>Angular</li>
+						</ul>
+					</ul>
 					<aside class="notes">
 						
 					</aside>
@@ -598,6 +647,7 @@ angular.module('App')
 <canvas></canvas>
 						</code>
 					</pre>
+					<p>Used to draw graphics, on the fly, via scripting (usually JavaScript)</p>
 					<aside class="notes">
 						<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
 						<p></p>
@@ -611,7 +661,6 @@ angular.module('App')
 							<li>Kinetic JS</li>
 							<li>Fabric JS</li>
 							<li>three JS</li>
-							<li></li>
 						</ul>
 					</p>
 					<aside class="notes">
@@ -625,10 +674,25 @@ angular.module('App')
 						<li>D3.js</li>
 						<li>Raphael</li>
 						<li>Bonsai JS</li>
-						<li></li>
 					</p>
 					<aside class="notes">
 						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Why choose D3.js</h2>
+					<ul>
+						<li>Full power and control over every single vector drawn</li>
+						<li>Extremely easy to data bind</li>
+						<li>Extremely easy to bind events</li>
+						<li>Its vectors so works beautifully on all displays</li>
+						<li>Huge support from community</li>
+					</ul>
+					<aside class="notes">
+						Talk about the power of data binding and the elegance of the library.
+						Visualizations is a side product of the library. 
+						Large community support.
 					</aside>
 				</section>
 
@@ -687,22 +751,6 @@ angular.module('App')
 					});
 
 					</script>
-				</section>
-
-				<section>
-					<h2>Why choose D3.js</h2>
-					<ul>
-						<li>Full power and control over every single vector drawn</li>
-						<li>Extremely easy to data bind</li>
-						<li>Extremely easy to bind events</li>
-						<li>Its vectors so works beautifully on all displays</li>
-						<li>Huge support from community</li>
-					</ul>
-					<aside class="notes">
-						Talk about the power of data binding and the elegance of the library.
-						Visualizations is a side product of the library. 
-						Large community support.
-					</aside>
 				</section>
 
 				<section>
@@ -840,6 +888,44 @@ d3.json("/data/output.json", function(error, us) {
 					<p>Include d3 using bower</p>
 					<p>Insert the d3 code into a directive</p>
 					<p>Insert the directive into the aboutUs route</p>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Create an angular application using Yeoman</h2>
+					<pre>
+						<code>
+yo angular
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Create 2 routes</h2>
+					<pre>
+						<code>
+yo angular:route main
+yo angular:route aboutUs
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Include D3 with bower</h2>
+					<pre>
+						<code>
+bower install d3
+// include file in index.html
+						</code>
+					</pre>
 					<aside class="notes">
 						
 					</aside>

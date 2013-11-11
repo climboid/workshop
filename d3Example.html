@@ -4,6 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>D3.js Example</title>
 	<script src="lib/d3.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 	<div id="chart"></div>
@@ -76,6 +77,14 @@
 		.text(function(d){ return d.cost+' , '+d.time})
 		.style("font-size",'12')
 		.attr("stroke","black");
+
+	var xAxis = d3.svg.axis()
+	    .scale(xScale)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+	    .scale(yScale)
+	    .orient("left");
 
 
 	/*
