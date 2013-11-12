@@ -138,7 +138,7 @@
 
 				<section>
 					<img src="img/bored.jpg"/>
-					<p>Start with your work flow</p>
+					<p>Start with your workflow</p>
 					<aside class="notes">
 						How much time do you spend this days creating a boilerplate template?
 						Do you have all of your set up processes optimized so that you spend very little effort finding and installing what you need?
@@ -158,7 +158,7 @@
 				</section>
 
 				<section>
-					<img src="img/yeoman-logo.png"/>
+					<img src="img/yeoman-logo.png" style="width:30%"/>
 					<ul>
 						<li>"A collection of tools and best practices working in harmony to make developing for the web even better"</li>
 						<li>Allows you to quickly assemble files and folders along with boilerplate code.</li>
@@ -172,7 +172,7 @@
 				</section>
 
 								<section>
-					<img src="img/grunt.png"/>
+					<img src="img/grunt.png" style="width:40%"/>
 					<h2>Grunt</h2>
 					<p>Takes care of minification, compilation (sass, coffeescript), unit testing etc</p>
 					<p>Automation</p>
@@ -182,7 +182,7 @@
 				</section>
 
 				<section>
-					<img src="img/bower.png"/>
+					<img src="img/bower.png" style="width:30%"/>
 					<h2>Bower</h2>
 					<p>A package manager for the web, mainly front end packaging management.</p>
 					<aside class="notes">
@@ -589,7 +589,7 @@ angular.module('App')
 				<section>
 					<h2>Lets make an Angular app</h2>
 					<p> If you have Yeoman installed follow the presenter</p>
-					<p> If you do not have Yeoman installed please clone this repo</p>
+					<p> If you do not have Yeoman installed please <a href="https://github.com/climboid/workshop" target="_blank">clone this repo</a></p>
 					<aside class="notes">
 						
 					</aside>
@@ -624,33 +624,22 @@ angular.module('App')
 				</section>
 
 				<section>
-					<h2>What is SVG?</h2>
-					<p>
-						<ul>
-							<li>Scalable Vector Graphics, vector image format for 2 dimensional graphics</li>
-							<li>It is part of the DOM, can be styled using css</li>
-							<li>Because its part of the DOM one can attach events to it via JavaScript</li>
-							<li>Vectors can be scaled and because of that will look beautifully on retina displays</li>
-							<li>Best practice to use images as SVG format and even fonts</li>
-						</ul>
-					</p>
-					<aside class="notes">
-						
-					</aside>
-				</section>
-
-
-				<section>
 					<h2>What is the canvas?</h2>
 					<pre>
 						<code type="html">
 <canvas></canvas>
 						</code>
 					</pre>
-					<p>Used to draw graphics, on the fly, via scripting (usually JavaScript)</p>
+					<ul>
+						<li>Used to draw graphics, on the fly, via scripting (usually JavaScript)</li>
+						<li>Upon clicking you need to find X and Y and compare to elements inside of canvas</li>
+						<li>Can be super charged for webGL (context 3d)</li>
+						<li>If you need a lot of things in your visualization use Canvas for it will
+							not kill the DOM</li>
+					</ul>
 					<aside class="notes">
 						<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
-						<p></p>
+						
 					</aside>
 				</section>
 
@@ -669,6 +658,23 @@ angular.module('App')
 				</section>
 
 				<section>
+					<h2>What is SVG?</h2>
+					<p>
+						<ul>
+							<li>Scalable Vector Graphics, vector image format for 2 dimensional graphics</li>
+							<li>It is part of the DOM, can be styled using css</li>
+							<li>Because its part of the DOM one can attach events to it via JavaScript</li>
+							<li>Vectors can be scaled and because of that they will look beautifully on retina displays</li>
+							<li>Ability to use images as SVG format and even fonts</li>
+						</ul>
+					</p>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+
+				<section>
 					<h2>Third party libraries for SVG</h2>
 					<p>
 						<li>D3.js</li>
@@ -680,13 +686,14 @@ angular.module('App')
 					</aside>
 				</section>
 
+
 				<section>
 					<h2>Why choose D3.js</h2>
 					<ul>
 						<li>Full power and control over every single vector drawn</li>
 						<li>Extremely easy to data bind</li>
 						<li>Extremely easy to bind events</li>
-						<li>Its vectors so works beautifully on all displays</li>
+						<li>Its vectors so its works beautifully on all displays</li>
 						<li>Huge support from community</li>
 					</ul>
 					<aside class="notes">
@@ -716,7 +723,7 @@ angular.module('App')
 					    .attr("width", width)
 					    .attr("height", height);
 
-					d3.json("/js/miserables.json", function(error, graph) {
+					d3.json("/data/miserables.json", function(error, graph) {
 					  force
 					      .nodes(graph.nodes)
 					      .links(graph.links)
@@ -894,10 +901,36 @@ d3.json("/data/output.json", function(error, us) {
 				</section>
 
 				<section>
+					<h2>Create a directory called finalApp anywhere you want</h2>
+					<pre>
+						<code>
+mkdir finalApp
+cd finalApp
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
 					<h2>Create an angular application using Yeoman</h2>
 					<pre>
 						<code>
 yo angular
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Include D3 with bower</h2>
+					<pre>
+						<code>
+bower install d3
+// include file in index.html
 						</code>
 					</pre>
 					<aside class="notes">
@@ -919,11 +952,48 @@ yo angular:route aboutUs
 				</section>
 
 				<section>
-					<h2>Include D3 with bower</h2>
+					<h2>Create a chart directive</h2>
 					<pre>
 						<code>
-bower install d3
-// include file in index.html
+yo angular:directive chart
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Insert the directive into the aboutUs</h2>
+					<pre>
+						<code>
+//aboutUs.html
+<chart></chart>
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Insert the d3 code we made into the directive</h2>
+					<pre>
+						<code>
+'use strict';
+
+angular.module('finalApp')
+  .directive('chart', function () {
+  return {
+      restrict: 'E',
+      link: function (scope, element) {
+        //
+        // code goes here
+        //
+        // into what DOM node should we insert the directive?
+      }
+    };
+  });
 						</code>
 					</pre>
 					<aside class="notes">

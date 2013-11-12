@@ -10,81 +10,7 @@
 	<div id="chart"></div>
 	<script>
 
-	var dataset = [
-	{
-		cost:Math.floor(Math.random()*100), 
-		time:Math.floor(Math.random()*100), 
-		roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)}
-	];
-	
-	var width = 960,
-			height = 400,
-			padding = {
-				top:20,
-				bottom:20,
-				left:50,
-				right:80
-			};
 
-	//
-	// find an easier way instead of setting d3.min and d3.max .... I think its d3.something
-	//
-
-  var minX = d3.min(dataset,function(d){ return d.cost }),
-  		maxX = d3.max(dataset,function(d){ return d.cost }),
-			xScale = d3.scale.linear().domain([minX,maxX]).range([padding.left, width - padding.right]),
-			yMin = d3.min(dataset, function(d){ return d.time }),
-			yMax = d3.max(dataset, function(d){ return d.time }),
-			yScale = d3.scale.linear().domain([yMin, yMax]).range([padding.top,height - padding.bottom]),
-			rMin = d3.min(dataset,function(d){ return d.roi; }),
-			rMax = d3.max(dataset,function(d){ return d.roi; }),
-			rScale = d3.scale.linear().domain([rMin, rMax]).range([2,10]);
-
-	var svg = d3.select("#chart")
-						.append("svg")
-						.attr("width",width)
-						.attr("height",height);
-
-	svg.selectAll("circle")
-		.data(dataset)
-		.enter().append("circle")
-		.attr("cx",function(d){ return xScale(d.cost)})
-		.attr("cy",function(d){ return yScale(d.time)})
-		.attr("r",function(d){ return rScale(d.roi)})
-		.attr("fill",function(d){ 
-			return 'rgb('+d.roi*10+','+d.cost+','+d.time+')'
-		})
-		.on('click',function(d){ console.log("d",d)});
-
-	svg.selectAll("text")
-		.data(dataset)
-		.enter().append("text")
-		.attr("x",function(d){ return xScale(d.cost)+rScale(d.roi)})
-		.attr("y",function(d){ return yScale(d.time)})
-		.text(function(d){ return d.cost+' , '+d.time})
-		.style("font-size",'12')
-		.attr("stroke","black");
-
-	var xAxis = d3.svg.axis()
-	    .scale(xScale)
-	    .orient("bottom");
-
-	var yAxis = d3.svg.axis()
-	    .scale(yScale)
-	    .orient("left");
 
 
 	/*
@@ -125,64 +51,80 @@
 	//
 
 	// 	var dataset = [
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi:Math.floor(Math.random()*100)}
+	// {
+	// 	cost:Math.floor(Math.random()*100), 
+	// 	time:Math.floor(Math.random()*100), 
+	// 	roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)}
 	// ];
-
-	// var w = 500,
-	// 		h = 300,
+	
+	// var width = 960,
+	// 		height = 400,
 	// 		padding = {
-	// 			left:10,
-	// 			right:20,
 	// 			top:20,
-	// 			bottom:10
-	// 		},
-	// 		xScale = d3.scale.linear()
-	// 										.domain([0,d3.max(dataset, function(d){ return d.cost; })])
-	// 										.range([padding.left*2, w-padding.right*2]),
-	// 		yScale = d3.scale.linear()
-	// 										.domain([0, d3.max(dataset, function(d){ return d.time; })])
-	// 										.range([h-padding.bottom, padding.top]),
-	// 		rScale = d3.scale.linear()
-	// 										.domain([0, d3.max(dataset,function(d){ return d.roi; })])
-	// 										.range([2,10]);
+	// 			bottom:20,
+	// 			left:50,
+	// 			right:80
+	// 		};
 
-	// var svg = d3.select("body")
-	// 						.append("svg")
-	// 						.attr("width",w)
-	// 						.attr("height",h);
+	// //
+	// // find an easier way instead of setting d3.min and d3.max .... I think its d3.something
+	// //
+
+ //  var minX = d3.min(dataset,function(d){ return d.cost }),
+ //  		maxX = d3.max(dataset,function(d){ return d.cost }),
+	// 		xScale = d3.scale.linear().domain([minX,maxX]).range([padding.left, width - padding.right]),
+	// 		yMin = d3.min(dataset, function(d){ return d.time }),
+	// 		yMax = d3.max(dataset, function(d){ return d.time }),
+	// 		yScale = d3.scale.linear().domain([yMin, yMax]).range([padding.top,height - padding.bottom]),
+	// 		rMin = d3.min(dataset,function(d){ return d.roi; }),
+	// 		rMax = d3.max(dataset,function(d){ return d.roi; }),
+	// 		rScale = d3.scale.linear().domain([rMin, rMax]).range([2,10]);
+
+	// var svg = d3.select("#chart")
+	// 					.append("svg")
+	// 					.attr("width",width)
+	// 					.attr("height",height);
 
 	// svg.selectAll("circle")
-	// 		.data(dataset)
-	// 		.enter()
-	// 		.append("circle")
-	// 		.attr("cx",function(d,i){ return xScale(d.cost)})
-	// 		.attr("cy",function(d,i){ return yScale(d.time)})
-	// 		.attr("r",function(d){ return rScale(d.roi)})
-	// 		.attr("fill",function(d){ return 'rgb('+(d.cost)*10+','+(d.time)*10+',0)'});
+	// 	.data(dataset)
+	// 	.enter().append("circle")
+	// 	.attr("cx",function(d){ return xScale(d.cost)})
+	// 	.attr("cy",function(d){ return yScale(d.time)})
+	// 	.attr("r",function(d){ return rScale(d.roi)})
+	// 	.attr("fill",function(d){ 
+	// 		return 'rgb('+d.roi*10+','+d.cost+','+d.time+')'
+	// 	})
+	// 	.on('click',function(d){ console.log("d",d)});
 
 	// svg.selectAll("text")
-	// 		.data(dataset)
-	// 		.enter()
-	// 		.append("text")
-	// 		.text(function(d){
-	// 			return d.cost + "," + d.time;
-	// 		})
-	// 		.attr("x",function(d){ return xScale(d.cost)})
-	// 		.attr("y",function(d){ return yScale(d.time + 3)})
-	// 		.attr("font-family","sans-serif")
-	// 		.attr("font-size","11px")
-	// 		.attr("stroke","black");
+	// 	.data(dataset)
+	// 	.enter().append("text")
+	// 	.attr("x",function(d){ return xScale(d.cost)+rScale(d.roi)})
+	// 	.attr("y",function(d){ return yScale(d.time)})
+	// 	.text(function(d){ return d.cost+' , '+d.time})
+	// 	.style("font-size",'12')
+	// 	.attr("stroke","black");
+
+	// var xAxis = d3.svg.axis()
+	//     .scale(xScale)
+	//     .orient("bottom");
+
+	// var yAxis = d3.svg.axis()
+	//     .scale(yScale)
+	//     .orient("left");
 
 	</script>
 </body>
