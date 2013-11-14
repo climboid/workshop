@@ -37,3 +37,22 @@
   stroke-opacity: .6;
 }
 
+.axis path{ 
+  fill:none; 
+  stroke: black; 
+} 
+
+.axis { 
+  font-size: 8pt; 
+  font-family:sans-serif;
+} 
+
+.tick { 
+  fill:none; 
+  stroke:black; 
+} 
+
+
+
+
+

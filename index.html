@@ -53,7 +53,6 @@
 					<p>
 						<ul>
 							<li>Intros</li>
-							<li>Evolution of Front End</li>
 							<li>Dive into Yeoman</li>
 							<li>Dive into Angular</li>
 							<li>Dive into D3.js</li>
@@ -88,45 +87,18 @@
 				</section>
 
 				<section>
-					<img src="img/winOld.png"/>
-					<p>The past</p>
-					<aside class="notes">
-						<ul>
-							<li>Static pages rendered in the Server</li>
-							<li>Little support for JavaScript</li>
-							<li>Cross browser Hell</li>
-							<li>Animated gifs was as good as it got</li>
-							<li>PrototypeJS - Thomas Fuchs</li>
-							<li>jQuery - John Resig</li>
-							<li>Flash was awesome</li>
-							<li>No mobile or very little</li>
-						</ul>
-						I've created jQuery hell<br>
-						I used to do flash<br>
-						Loved Firefox and hated IE<br>
-						look from site point "The Art &amp; Science of JavaScript
-						Thomas Fuchs &amp; Amy Hoy - JavaScript Master Class
-					</aside>
+					<h2>Mexico and India</h2>
+					<img src="img/mexico.jpg" style="float:left; width:40%"/>
+					<img src="img/india.jpg" style="float:left; width:40%; margin-left:5%"/>
+					<p style="clear:both">We are very similar in many ways, especially when it comes to working hard and being passionate about our teams</p>
 				</section>
 
 				<section>
-					<img src="img/dontStop.jpg"/>
-					<p>The present</p>
-					<aside class="notes">
-						<ul>
-							<li>Browser wars are over</li>
-							<li>HTML5 is her to stay</li>
-							<li>JavaScript is in the top 5 most popular <a href="http://langpop.com/" target="_blank">languages in the world</a></li>
-							<li>CANVAS and SVG dominate</li>
-							<li>webGL</li>
-							<li>Flash is not dead but its not as popular</li>
-							<li>Automatic updates are all over the place</li>
-						</ul>
-						Browser wars really did the trick<br>
-						V8 from chrome pushed the limits<br>
-						Everyone has a browser on their computer<br>
-					</aside>
+					<h1>We need to be more productive</h1>
+					<p>The tools of today allow us to do so, we simply need to use them correctly. </p>
+					<img src="img/rebecca.png" style="width:80%"/>
 				</section>
+
 
 				<section>
 					<img src="img/infinite_power.jpg"/>
@@ -142,12 +114,6 @@
 					<aside class="notes">
 						How much time do you spend this days creating a boilerplate template?
 						Do you have all of your set up processes optimized so that you spend very little effort finding and installing what you need?
-					</aside>
-				</section>
-
-				<section>
-					<h2>Right common libraries and utilities... there are hundreds?</h2>
-					<aside class="notes">
 					</aside>
 				</section>
 
@@ -209,7 +175,7 @@
 
 				<section>
 					<h2>Who contributes to Yeoman?</h2>
-					<p>Addy Osmani a.k.a Yeoman daddy + <a href="https://github.com/yeoman/yeoman/graphs/contributors" target="_blank">some of the best in the world</a>
+					<p>Addy Osmani <a href="https://github.com/yeoman/yeoman/graphs/contributors" target="_blank">some of the best in the world</a>
 					</p>
 					<aside class="notes">
 						Some of the best devs around... they're all buddies actually and most of them work at Google. 
@@ -234,7 +200,9 @@
 					<h2>Lets install Yeoman</h2>
 					<ul>
 						<li>You will need <a href="http://nodejs.org/" target="_blank">NodeJS</a></li>
-						<li>Handle scenarios for those who don't have a Mac</li>
+						<li>Make sure you have git installed as well</li>
+						<li>If you use SASS you will need ruby and compass</li>
+
 					</ul>
 						<pre>
 npm install -g yo
@@ -303,6 +271,11 @@ npm install -g generator-angular
 				</section>
 
 				<section>
+					<h2>No silver bullet</h2>
+					<img src="img/aaron.png" style="width:100%"/>
+				</section>
+
+				<section>
 					<h2>Who contributes to Angular?</h2>
 					<ul>
 						<li>Google</li>
@@ -332,7 +305,7 @@ npm install -g generator-angular
 						<li>ng-view</li>
 					</ul>
 					<pre>
-						<code>
+						<code contenteditab>
 &lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -359,7 +332,7 @@ npm install -g generator-angular
 					<h3>Your main app module</h3>
 					<br>
 					<pre>
-						<code>
+						<code contenteditab>
 'use strict';
 
 angular.module('App', [])
@@ -386,7 +359,7 @@ angular.module('App', [])
 					<h3>Router</h3>
 					<p>A router allows you to glue a controller to a view, creates a scope underneath that controller and maintains state within the app.</p>
 					<pre>
-						<code>
+						<code contenteditab>
 $routeProvider
  .when('/', {
   templateUrl: 'views/main.html',
@@ -411,7 +384,7 @@ $routeProvider
 					<h3>Controller</h3>
 					<p>Instantiation of a new controller object along with its child scope</p>
 					<pre>
-						<code>
+						<code contenteditab>
 'use strict';
 
 angular.module('App')
@@ -435,7 +408,7 @@ angular.module('App')
 					<h3>View</h3>
 					<p>ng-view<br>Templates that interpolate scope objects that are part of a given controller or are inherited prototypically.</p>
 					<pre>
-						<code type="html">
+						<code type="html" contenteditab>
 <div class="hero-unit">
   <h1>'Allo, 'Allo!</h1>
   <p>You now have</p>
@@ -459,7 +432,7 @@ angular.module('App')
 					<p>$scope will allow you to interpolate its properties in a given view</p>
 					<p>$scope.hello = "world"</p>
 					<pre>
-						<code type="html">
+						<code type="html" contenteditab>
 <div ng-bind="hello">...</div>
 <div>{{hello}}... </div>
 </code>
@@ -474,19 +447,21 @@ angular.module('App')
 					<h2>Core concepts of angular</h2>
 					<h3>$scope</h3>
 					<pre>
-						<code type="javascript">
+						<code type="javascript" contenteditab>
 angular.module('App')
   .controller('MainCtrl', function ($scope) {
-    $scope.hello = [
-     {title:'me',color:'blue',value:2},
-     {title:'you',color:'red',value:0}
+    $scope.hello = [ 
+     { title:'me',color:'blue',value:2 }, 
+     { title:'you',color:'red',value:0 } 
     ];
+    $scope.btnClicked = function(){ ... };
+    $scope.falsy = false;
   });
 </code>
-<code type="html">
+<code type="html" contenteditab>
 <!-- main.html-->
-&lt;ul&gt;
- &lt;li ng-repeat="item in hello"&gt;
+&lt;ul ng-if="!falsy"&gt;
+ &lt;li ng-repeat="item in hello" ng-click="btnClicked()"&gt;
   &lt;div ng-bind="item.title"&gt;&lt;/div&gt;
   &lt;div&gt;{{item.color}}&lt;/div&gt;
   &lt;input type="number" ng-model="item.value"/&gt;
@@ -506,7 +481,7 @@ angular.module('App')
 					<h3>Services</h3>
 					<p>Something that spans multiple controllers and doesn't have a view tied to it.</p>
 					<pre>
-						<code>
+						<code contenteditab>
 'use strict';
 
 angular.module('App')
@@ -528,7 +503,7 @@ angular.module('App')
 					<h3>Constants</h3>
 					<p>Maintained across the entire application. Can be injected as a service. Use this for constants within your application.</p>
 					<pre>
-						<code>
+						<code contenteditab>
 'use strict';
 
 angular.module('App')
@@ -545,14 +520,18 @@ angular.module('App')
 					<h3>Custom Directives</h3>
 					<p>UI components, charts, visualization... anything that has specific html conversion and needs to be part of the given scope.</p>
 					<pre>
-						<code>
+						<code contenteditab>
 'use strict';
 
 angular.module('App')
   .directive('chart', function () {
-    return {
-      template: '<div>I am a chart</div>',
-      restrict: 'E'
+  return {
+      restrict: 'E',
+      controller: function($scope, $element){ ... },
+      templateUrl: 'my-dialog.html',
+      link: function (scope, element) {
+        scope.name = 'Jeff';
+      }
     };
   });
 						</code>
@@ -562,29 +541,6 @@ angular.module('App')
 					</aside>
 				</section>
 
-				<section>
-					<h2>Core concepts of angular</h2>
-					<h3>Custom Dirctives</h3>
-					<pre>
-						<code>
-'use strict';
-
-angular.module('App')
-  .directive('chart', function () {
-  return {
-      restrict: 'E',
-      controller: function($scope, $element){
-
-    	},
-      templateUrl: 'my-dialog.html',
-      link: function (scope, element) {
-        scope.name = 'Jeff';
-      }
-    };
-  });
-						</code>
-					</pre>
-				</section>
 
 				<section>
 					<h2>Lets make an Angular app</h2>
@@ -626,7 +582,7 @@ angular.module('App')
 				<section>
 					<h2>What is the canvas?</h2>
 					<pre>
-						<code type="html">
+						<code type="html" contenteditab>
 <canvas></canvas>
 						</code>
 					</pre>
@@ -636,6 +592,7 @@ angular.module('App')
 						<li>Can be super charged for webGL (context 3d)</li>
 						<li>If you need a lot of things in your visualization use Canvas for it will
 							not kill the DOM</li>
+						<li>Raster</li>
 					</ul>
 					<aside class="notes">
 						<p>You can think of it as Flash but way cooler because it can interact with the rest of the app given that it uses JavaScript to draw items inside of it</p>
@@ -767,11 +724,11 @@ angular.module('App')
 							<li>
 								<a href="http://bost.ocks.org/mike/" target="_blank">Mike Bostock</a></li>
 							<li>
-								<a href="http://www.jasondavies.com/">Jason Davies</a></li>
+								<a href="http://www.jasondavies.com/" target="_blank">Jason Davies</a></li>
 							<li> many others </li>
 						</ul>
 					</p>
-					<blockquote cite="http://www.ft.com/cms/s/2/dda1cb5c-f4c0-11e2-a62e-00144feabdc0.html"> "I suggest keeping an eye on the work of Bret Victor and Mike Bostock. Both are cutting edge. Bret Victor visualises programming, sees and thinks beautifully, just starting to blossom developed the open-source D3, Data-Driven Documents ."</blockquote>
+					<blockquote cite="http://www.ft.com/cms/s/2/dda1cb5c-f4c0-11e2-a62e-00144feabdc0.html"> "I suggest keeping an eye on the work of Bret Victor and Mike Bostock. Both are cutting edge. Bret Victor visualises programming, sees and thinks beautifully, just starting to blossom (see worrydream.com). Mike Bostock (see bost.ocks.org) developed the open-source D3, Data-Driven Documents (d3js.org)."</blockquote>
 					<i>Edward Tufte</i>
 					<aside class="notes">
 						<p>Edward Tufte is the guru of graphics, the high priest of presentation. For more than 30 years he has been showing us how to visualise data with simplicity, clarity and elegance, while campaigning against “chartjunk” and other design practices that lead to obfuscation.</p>
@@ -784,6 +741,7 @@ angular.module('App')
 					<ul>
 						<li>Include the library</li>
 						<li>svg container typically a &lt;div&gt;...&lt;div&gt;</li>
+						<li>Create your scales using the right domain and range</li>
 						<li>Some boiler plate for your svg container</li>
 						<li>Create SVG items</li>
 						<li>Data bind the SVG item attributes</li>
@@ -852,7 +810,7 @@ d3.json("/data/output.json", function(error, us) {
 				<section>
 					<h2>Code for maps</h2>
 					<pre>
-						<code type="javascript">
+						<code type="javascript" contenteditab>
 
 var width = 960,
     height = 500;
@@ -903,7 +861,7 @@ d3.json("/data/output.json", function(error, us) {
 				<section>
 					<h2>Create a directory called finalApp anywhere you want</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 mkdir finalApp
 cd finalApp
 						</code>
@@ -916,7 +874,7 @@ cd finalApp
 				<section>
 					<h2>Create an angular application using Yeoman</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 yo angular
 						</code>
 					</pre>
@@ -928,7 +886,7 @@ yo angular
 				<section>
 					<h2>Include D3 with bower</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 bower install d3
 // include file in index.html
 						</code>
@@ -941,7 +899,7 @@ bower install d3
 				<section>
 					<h2>Create 2 routes</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 yo angular:route main
 yo angular:route aboutUs
 						</code>
@@ -952,10 +910,81 @@ yo angular:route aboutUs
 				</section>
 
 				<section>
+					<h4>If you don't have yeoman<br>use this for the routes</h4>
+					<pre>
+						<code contenteditab>
+//
+// create the routes
+//
+// app.js
+$routeProvider
+ .when('/', {
+  templateUrl: 'views/main.html',
+  controller: 'MainCtrl'
+ })
+ .when('/aboutUs', {
+  templateUrl: 'views/aboutUs.html',
+  controller: 'AboutUsCtrl'
+ })
+ .otherwise({
+  redirectTo: '/'
+});
+
+//
+// crete the controllers
+//
+// scripts/controllers/main.js
+'use strict';
+
+angular.module('finalApp')
+  .controller('MainCtrl', function ($scope) { });
+
+//scripts/controllers/aboutus.js
+'use strict';
+
+angular.module('finalApp')
+  .controller('AboutUsCtrl', function ($scope) { });
+
+//
+// create the view files
+//
+// views/main.html
+// views/aboutus.html
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
 					<h2>Create a chart directive</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 yo angular:directive chart
+						</code>
+					</pre>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section>
+					<h4>If you don't have Yeoman<br> use this for the directive</h4>
+					<pre>
+						<code contenteditab>
+// scripts/directives/chart.js
+'use strict';
+
+angular.module('finalApp')
+  .directive('chart', function () {
+  return {
+      restrict: 'E',
+      link: function (scope, element) {
+        
+      }
+    };
+  });
 						</code>
 					</pre>
 					<aside class="notes">
@@ -966,7 +995,7 @@ yo angular:directive chart
 				<section>
 					<h2>Insert the directive into the aboutUs</h2>
 					<pre>
-						<code>
+						<code contenteditab>
 //aboutUs.html
 <chart></chart>
 						</code>
@@ -979,7 +1008,7 @@ yo angular:directive chart
 				<section>
 					<h2>Insert the d3 code we made into the directive</h2>
 					<pre>
-						<code>
+						<code contenteditable>
 'use strict';
 
 angular.module('finalApp')

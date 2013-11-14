@@ -5,126 +5,114 @@
 	<title>D3.js Example</title>
 	<script src="lib/d3.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
 </head>
 <body>
 	<div id="chart"></div>
 	<script>
 
-
-
-
-	/*
-	 Create the boilerplate variables
-	 width
-	 height
-	 padding
-	 xScale input === domain output === range
-	 yScale
-	 ?? scale (rScale)
-	 svg container
-	 */
-
-	// insert svg items in this case circles
-	/*
-	svg.selectAll("circle")
-			.data(dataset)
-			.enter()
-			.append("circle")
-	*/
-
-	/*
-	Add text items
-	*/
-
-
+	// 
+	// data source
+	//
+	var dataset = [
+	{ cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
+		{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)}
+	];
 
 	//
+	// boilerplate code/dimensions
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	// 	var dataset = [
-	// {
-	// 	cost:Math.floor(Math.random()*100), 
-	// 	time:Math.floor(Math.random()*100), 
-	// 	roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// {cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)},
-	// 	{cost:Math.floor(Math.random()*100), time:Math.floor(Math.random()*100), roi: Math.floor(Math.random()*100)}
-	// ];
 	
-	// var width = 960,
-	// 		height = 400,
-	// 		padding = {
-	// 			top:20,
-	// 			bottom:20,
-	// 			left:50,
-	// 			right:80
-	// 		};
+	var width = 960,
+			height = 400,
+			padding = {
+				top:20,
+				bottom:20,
+				left:50,
+				right:80
+			};
 
-	// //
-	// // find an easier way instead of setting d3.min and d3.max .... I think its d3.something
-	// //
 
- //  var minX = d3.min(dataset,function(d){ return d.cost }),
- //  		maxX = d3.max(dataset,function(d){ return d.cost }),
-	// 		xScale = d3.scale.linear().domain([minX,maxX]).range([padding.left, width - padding.right]),
-	// 		yMin = d3.min(dataset, function(d){ return d.time }),
-	// 		yMax = d3.max(dataset, function(d){ return d.time }),
-	// 		yScale = d3.scale.linear().domain([yMin, yMax]).range([padding.top,height - padding.bottom]),
-	// 		rMin = d3.min(dataset,function(d){ return d.roi; }),
-	// 		rMax = d3.max(dataset,function(d){ return d.roi; }),
-	// 		rScale = d3.scale.linear().domain([rMin, rMax]).range([2,10]);
+	//
+	// scales
+	//
+  var xScale = d3.scale.linear()
+  		.domain(d3.extent(dataset, function(d){ return d.cost })) // input
+  		.range([padding.left, width - padding.right]); // output
 
-	// var svg = d3.select("#chart")
-	// 					.append("svg")
-	// 					.attr("width",width)
-	// 					.attr("height",height);
+	var yScale = d3.scale.linear()
+			.domain(d3.extent(dataset, function(d){ return d.time })) //input
+			.range([padding.top,height - padding.bottom]); // output
 
-	// svg.selectAll("circle")
-	// 	.data(dataset)
-	// 	.enter().append("circle")
-	// 	.attr("cx",function(d){ return xScale(d.cost)})
-	// 	.attr("cy",function(d){ return yScale(d.time)})
-	// 	.attr("r",function(d){ return rScale(d.roi)})
-	// 	.attr("fill",function(d){ 
-	// 		return 'rgb('+d.roi*10+','+d.cost+','+d.time+')'
-	// 	})
-	// 	.on('click',function(d){ console.log("d",d)});
+	var rScale = d3.scale.linear()
+			.domain(d3.extent(dataset, function(d){ return d.roi })) // input
+			.range([2,10]); //output
 
-	// svg.selectAll("text")
-	// 	.data(dataset)
-	// 	.enter().append("text")
-	// 	.attr("x",function(d){ return xScale(d.cost)+rScale(d.roi)})
-	// 	.attr("y",function(d){ return yScale(d.time)})
-	// 	.text(function(d){ return d.cost+' , '+d.time})
-	// 	.style("font-size",'12')
-	// 	.attr("stroke","black");
 
-	// var xAxis = d3.svg.axis()
-	//     .scale(xScale)
-	//     .orient("bottom");
+	//
+	// container
+	//
+	var svg = d3.select("#chart")
+						.append("svg")
+						.attr("width",width)
+						.attr("height",height);
 
-	// var yAxis = d3.svg.axis()
-	//     .scale(yScale)
-	//     .orient("left");
+	//
+	// create svg elements
+	//
+	svg.selectAll("circle")
+		.data(dataset)
+		.enter().append("circle")
+		.attr("cx",function(d){ return xScale(d.cost) })
+		.attr("cy",function(d){ return yScale(d.time) })
+		.attr("r",function(d){ return rScale(d.roi) })
+		.attr("fill",function(d){
+			console.log("d")
+			return 'rgb('+(d.cost)*10+','+(d.time)*10+',0)';
+		})
+		.on('click',function(d){ console.log("d",d) });
+
+	svg.selectAll("text")
+		.data(dataset)
+		.enter().append("text")
+		.attr("x",function(d){ return xScale(d.cost)+rScale(d.roi)})
+		.attr("y",function(d){ return yScale(d.time)})
+		.text(function(d){ return d.cost+' , '+d.time})
+		.style("font-size",'12')
+		.attr("stroke","black");
+
+	//
+	// axes
+	// 
+	var xAxis = d3.svg.axis()
+	    .scale(xScale)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+			.scale(yScale)
+			.orient("left"); 
+
+	svg.append("g")
+		.attr("class", "y axis") 
+		.attr("transform", "translate(" + padding.left + ", 0 )") 
+		.call(yAxis);
+
+	svg.append("g")
+		.attr("class", "x axis") 
+		.attr("transform", "translate(0, "+(height - padding.bottom)+")") 
+		.call(xAxis);
 
 	</script>
 </body>

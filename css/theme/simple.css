@@ -2,13 +2,13 @@
   font-family: 'News Cycle';
   font-style: normal;
   font-weight: 400;
-  src: local('News Cycle Regular'), local('NewsCycle-Regular'), url(/fonts/NewCycle.woff) format('woff');
+  src: local('News Cycle Regular'), local('NewsCycle-Regular'), url(../../fonts/NewCycle.woff) format('woff');
 }
 @font-face {
   font-family: 'News Cycle';
   font-style: normal;
   font-weight: 700;
-  src: local('News Cycle Bold'), local('NewsCycle-Bold'), url(/fonts/NewCycle-Bold.woff) format('woff');
+  src: local('News Cycle Bold'), local('NewsCycle-Bold'), url(../../fonts/NewCycle-Bold.woff) format('woff');
 }
 
 /**
