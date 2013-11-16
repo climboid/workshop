@@ -71,9 +71,6 @@
 				<section>
 					<h2>Intros</h2>
 					
-					<aside class="notes">
-						Talk about who we are, what we've been doing, climbing in the Himalaya.
-					</aside>
 				</section>
 
 				<section>
@@ -81,13 +78,17 @@
 					<img src="img/me.jpg" class="left"/>
 					<ul class="introList">
 						<li>UI Lead</li>
+						<li>JS Generalist</li>
 						<li>AngularJS</li>
-						<li>webGL</li>
+						<li>CSS</li>
 						<li>d3JS</li>
 						<li>Rock climb</li>
 						<li>oscarvillareal.com</li>
 						<li>@climboid</li>
 					</ul>
+					<aside class="notes">
+						Talk about who we are, what we've been doing, climbing in the Himalaya.
+					</aside>
 				</section>
 
 				<section>
@@ -95,9 +96,11 @@
 					<img src="img/suman.jpg" class="left" style="width:50%"/>
 					<ul class="introList">
 						<li>UI Lead</li>
+						<li>JS Generalist</li>
 						<li>AngularJS</li>
 						<li>Grunt</li>
 						<li>Yeoman</li>
+						<li>CSS</li>
 					</ul>
 				</section>
 
@@ -204,10 +207,7 @@
 						Benefits of that
 					</aside>
 				</section>
-
-
-
-				
+			
 
 				<section>
 					<h2>How does Yeoman work</h2>
@@ -215,6 +215,10 @@
 					<aside class="notes">
 						
 					</aside>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
 				</section>
 
 				<section>
@@ -319,6 +323,11 @@ npm install -g generator-angular
 				</section>
 
 				<section>
+					<h2>The key in angular is always think about the data, not the DOM, the 
+						DOM will take care of its self so long as it is data binded with a given $scope of a given controller</h2>
+				</section>
+
+				<section>
 					<h2>Core concepts of angular</h2>
 					<ul>
 						<li>the ng...</li>
@@ -347,6 +356,8 @@ npm install -g generator-angular
 						where each route potentially can have its own controller and view (unless sharing makes more sense)
 					</aside>
 				</section>
+
+
 
 				<section>
 					<h2>Core concpets of angular</h2>
@@ -496,6 +507,10 @@ angular.module('App')
 					</aside>
 				</section>
 
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
 
 				<section>
 					<h2>Core concepts of angular</h2>
@@ -562,6 +577,10 @@ angular.module('App')
 					</aside>
 				</section>
 
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
 
 				<section>
 					<h2>Lets make an Angular app</h2>
@@ -581,16 +600,15 @@ angular.module('App')
 
 				<section>
 					<h2>Recap</h2>
-					<ul>
-						<li>History</li>
+					<ul class="unstyled">
 						<li>Workflow</li>
-						<ul>
+						<ul class="unstyled">
 							<li>Yeoman</li>
 							<li>Generators</li>
 							<li>Scaffolds</li>
 						</ul>
 						<li>MVC</li>
-						<ul>
+						<ul class="unstyled">
 							<li>Ember</li>
 							<li>Angular</li>
 						</ul>
@@ -602,12 +620,10 @@ angular.module('App')
 
 				<section>
 					<h2>What is the canvas?</h2>
-					<pre>
-						<code type="html" contenteditab>
-<canvas></canvas>
-						</code>
-					</pre>
 					<ul>
+						<li>
+							&lt;canvas&gt; "magic" &lt;/canvas&gt;
+						</li>
 						<li>Used to draw graphics, on the fly, via scripting (usually JavaScript)</li>
 						<li>Upon clicking you need to find X and Y and compare to elements inside of canvas</li>
 						<li>Can be super charged for webGL (context 3d)</li>
@@ -761,7 +777,7 @@ angular.module('App')
 					<h2>Structure of a D3 visualization</h2>
 					<ul>
 						<li>Include the library</li>
-						<li>svg container typically a &lt;div&gt;...&lt;div&gt;</li>
+						<li>svg container &lt;svg&gt; "magic" &lt;svg&gt;</li>
 						<li>Create your scales using the right domain and range</li>
 						<li>Some boiler plate for your svg container</li>
 						<li>Create SVG items</li>
@@ -774,6 +790,13 @@ angular.module('App')
 				</section>
 
 
+
+				<section>
+					<h2>Mike Bostocks recommendations</h2>
+					For <a href="http://bost.ocks.org/mike/chart/" target="_blank">reusable charts</a> </h2>
+				</section>
+
+
 				<section>
 					<h2>D3.js code example</h2>
 					<a href="http://bl.ocks.org/mbostock/3885304" target="_blank">link to code</a>
@@ -783,11 +806,15 @@ angular.module('App')
 				</section>
 
 				<section>
+					<h1>Questions?</h1>
+				</section>
+
+				<section>
 					<h2>Things to know about when using D3</h2>
 					<ul>
-						<li>SVG (elements attributes)</li>
-						<li>Scales (linear, log, exp ... )</li>
-						<li>Utility functions (max, min, etc)</li>
+						<li>SVG (elements &amp; attributes)</li>
+						<li>Scales (linear, log, exp, ordinal, ... )</li>
+						<li>Utility functions (max, min, extent, ...)</li>
 						<li>Boilerplate process</li>
 					</ul>
 				</section>
@@ -921,7 +948,7 @@ bower install d3
 					<h2>Create 2 routes</h2>
 					<pre>
 						<code contenteditab>
-yo angular:route main
+yo angular:route contactUs
 yo angular:route aboutUs
 						</code>
 					</pre>
@@ -943,6 +970,10 @@ $routeProvider
   templateUrl: 'views/main.html',
   controller: 'MainCtrl'
  })
+ .when('/contactUs', {
+  templateUrl: 'views/contactUs.html',
+  controller: 'ContactUsCtrl'
+ })
  .when('/aboutUs', {
   templateUrl: 'views/aboutUs.html',
   controller: 'AboutUsCtrl'
@@ -958,7 +989,7 @@ $routeProvider
 'use strict';
 
 angular.module('finalApp')
-  .controller('MainCtrl', function ($scope) { });
+  .controller('ContactUsCtrl', function ($scope) { });
 
 //scripts/controllers/aboutus.js
 'use strict';
@@ -969,7 +1000,7 @@ angular.module('finalApp')
 //
 // create the view files
 //
-// views/main.html
+// views/contactus.html
 // views/aboutus.html
 						</code>
 					</pre>

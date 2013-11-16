@@ -52,6 +52,10 @@
   stroke:black; 
 } 
 
+.unstyled li{
+  list-style: none;
+}
+
 
 
 

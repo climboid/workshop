@@ -79,10 +79,11 @@
 		.attr("cy",function(d){ return yScale(d.time) })
 		.attr("r",function(d){ return rScale(d.roi) })
 		.attr("fill",function(d){
-			console.log("d")
 			return 'rgb('+(d.cost)*10+','+(d.time)*10+',0)';
 		})
-		.on('click',function(d){ console.log("d",d) });
+		.on('click',function(d){ 
+			console.log("d",d) 
+		});
 
 	svg.selectAll("text")
 		.data(dataset)
